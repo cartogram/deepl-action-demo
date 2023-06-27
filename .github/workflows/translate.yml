@@ -21,14 +21,14 @@ jobs:
             target_languages: 'de,cs'
             language_directory: './dictionaries'
 
-        - name: Commit changes
-          uses: devops-infra/action-commit-push@master
-          with:
-              github_token: '${{ secrets.GITHUB_TOKEN }}'
-              commit_prefix: '[Auto] '
-              commit_message: 'Adding updated localization files'
-              force: false
-              target_branch: ${{steps.vars.branch_name.current_branch}}
+        # - name: Commit changes
+        #   uses: devops-infra/action-commit-push@master
+        #   with:
+        #       github_token: '${{ secrets.GITHUB_TOKEN }}'
+        #       commit_prefix: '[Auto] '
+        #       commit_message: 'Adding updated localization files'
+        #       force: false
+        #       target_branch: ${{steps.vars.branch_name.current_branch}}
         - name: Create pull request
           uses: devops-infra/action-pull-request@master
           with:
