@@ -17,7 +17,7 @@ jobs:
           uses: cartogram/deepl-action@0.0.2
           with:
             auth_key: '${{ secrets.DEEPL_AUTH_KEY }}'
-            source_languages: 'en'
+            source_language: 'en'
             target_languages: 'de,cs'
             language_directory: './dictionaries'
 
