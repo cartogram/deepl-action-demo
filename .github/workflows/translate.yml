@@ -29,3 +29,9 @@ jobs:
               commit_message: 'Adding updated localization files'
               force: false
               target_branch: ${{steps.vars.branch_name.current_branch}}
+        - name: Create pull request
+          uses: devops-infra/action-pull-request@master
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            body: "Translations for ${{ github.event.commits[0].message }}"
+            title: ${{ github.event.commits[0].message }}
