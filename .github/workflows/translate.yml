@@ -20,18 +20,10 @@ jobs:
             source_language: 'en'
             target_languages: 'de,cs'
             language_directory: './dictionaries'
-
-        # - name: Commit changes
-        #   uses: devops-infra/action-commit-push@master
-        #   with:
-        #       github_token: '${{ secrets.GITHUB_TOKEN }}'
-        #       commit_prefix: '[Auto] '
-        #       commit_message: 'Adding updated localization files'
-        #       force: false
-        #       target_branch: ${{steps.vars.branch_name.current_branch}}
-        - name: Create pull request
-          uses: devops-infra/action-pull-request@master
+        - name: Commit changes
+          uses: EndBug/add-and-commit@v9
           with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            body: "Translations for ${{ github.event.commits[0].message }}"
-            title: ${{ github.event.commits[0].message }}
+            author_name: Bot
+            author_email: mseccafien@gmail.com
+            message: 'translations'
+            add: '**/*.json'
